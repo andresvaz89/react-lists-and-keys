@@ -6,7 +6,7 @@ function MovieCard(props) {
       <p>Director: {movie.director}</p>
       <p>Rating: {movie.IMDBRating}</p>
 
-      <button onClick={() => onDelete(movie._id)} className="btn-delete">
+      <button onClick={() => onDelete(movie)} className="btn-delete">
         Delete
       </button>
     </div>

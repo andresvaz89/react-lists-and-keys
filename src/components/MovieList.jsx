@@ -5,11 +5,11 @@ import MovieCard from './MovieCard';
 const MovieList = () => {
   const [movies, setMovies] = useState(moviesData);
 
-  const deleteMovie = (movieId) => {
-    const updatedMovies = movies.filter((movie) => movie._id !== movieId);
+  const deleteMovie = (selectedMovie) => {
+    const updatedMovies = movies.filter((movie) => movie !== selectedMovie);
 
-    setMovies(updatedMovies);
     // updating the state variable 'movies' with our copied array
+    setMovies(updatedMovies);
   };
 
   return (
