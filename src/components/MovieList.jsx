@@ -5,6 +5,8 @@ import MovieCard from './MovieCard';
 const MovieList = () => {
   const [movies, setMovies] = useState(moviesData);
 
+  const [showMovies, setShowMovies] = useState(true);
+
   const deleteMovie = (selectedMovie) => {
     const updatedMovies = movies.filter((movie) => movie !== selectedMovie);
 
@@ -12,12 +14,24 @@ const MovieList = () => {
     setMovies(updatedMovies);
   };
 
+  const toggleShowMovies = () => {
+    setShowMovies(!showMovies);
+  };
+
   return (
     <div>
       <h2>MovieList</h2>
-      {movies.map((movie) => (
-        <MovieCard key={movie._id} movie={movie} onDelete={deleteMovie} />
-      ))}
+
+      <button onClick={toggleShowMovies}>
+        {showMovies ? 'Hide Movies' : 'Show Movies'}
+      </button>
+
+      {showMovies &&
+        movies.map((movie) => {
+          return (
+            <MovieCard key={movie._id} movie={movie} onDelete={deleteMovie} />
+          );
+        })}
     </div>
   );
 };
